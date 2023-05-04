@@ -1,0 +1,60 @@
+{% extends "header_footer.html" %} {% load static %} {% block content %}
+
+
+<div class="page-banner-area bg-1">
+  <div class="container">
+    <div class="page-banner-content">
+      <h1>Contact Us</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>Contact</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="contact-area pt-70 pb-45">
+  <div class="container">
+    <div class="section-title style2 text-center">
+      <span class="sub-title">Contact Us</span>
+      <h2>Don’t Hesitate To Contact Us</h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="single-contact-card">
+          <div class="icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="contact-form">
+          {{msg}}
+          <form action="{% url 'send_msg' %}" method="post">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="mobile"
+                    id="name"
+                    class="form-control"
+                    required
+                    data-error="Please enter your mobile"
+                    placeholder="Mobile"
+                  />
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+            <button type="submit" class="default-btn style5">
+              <span>Send Message</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
